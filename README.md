@@ -1,8 +1,8 @@
 # NCR Heat Index Dashboard
 
-**Course:** DSA4154 - Information Presentation and Visualization
-**Program:** BS Data Science and Analytics
-**University:** University of Santo Tomas
+**Course:** DSA4154 - Information Presentation and Visualization <br>
+**Program:** BS Data Science and Analytics <br>
+**University:** University of Santo Tomas <br>
 **Group 4**
 
 Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan
