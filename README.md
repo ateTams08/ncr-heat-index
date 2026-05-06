@@ -27,21 +27,21 @@ This project is a live, automated heat index dashboard for the 17 cities and mun
 - `relative_humidity_2m` — Relative humidity (%) at 2 meters above ground
 - `apparent_temperature` — Heat index; how hot it actually feels combining temperature, humidity, and wind
 
-**Coverage:** 18 locations across Metro Manila (Caloocan is split into North and South)
-
+**Coverage:** 18 locations across Metro Manila (Caloocan is split into North and South) <br>
 **Time Range:** Past 7 days + 14-day forecast, updated daily
 
 ---
 
 ## Repository Structure
 
-| File | Description |
-|---|---|
-| `main.py` | Main Python extraction script |
-| `requirements.txt` | Python dependencies |
-| `service-account.json` | Google Cloud credentials (private) |
-| `.github/workflows/daily_update.yml` | GitHub Actions scheduler |
-| `README.md` | Project documentation |
+ncr-heat-index/ <br>
+├── .github/ <br>
+│   └── workflows/ <br>
+│       └── daily_update.yml   # GitHub Actions scheduler <br>
+├── main.py                    # Main Python extraction script <br>
+├── requirements.txt           # Python dependencies <br>
+├── service-account.json       # Google Cloud credentials (private) <br>
+└── README.md                  # Project documentation <br>
 
 ---
 
