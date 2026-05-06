@@ -12,7 +12,7 @@ Cherelle Valkyrie R. Oyales | John Dennis V. Vergara | Alecsandra Z. Villanueva
 
 ## About the Project
 
-This project is a live, automated heat index dashboard for the 17 cities and municipalities of Metro Manila (NCR). It aims to inform the public about current and upcoming heat conditions to help them make safer decisions during extreme heat events.
+This project is a live, automated heat index dashboard for the 17 cities and municipalities of Metro Manila (NCR). It aims to inform the public about heat conditions and trends to help them make safer decisions during extreme heat events.
 
 ---
 
@@ -25,10 +25,10 @@ This project is a live, automated heat index dashboard for the 17 cities and mun
 **Variables:**
 - `temperature_2m` — Actual air temperature (°C) at 2 meters above ground
 - `relative_humidity_2m` — Relative humidity (%) at 2 meters above ground
-- `apparent_temperature` — Heat index; how hot it actually feels combining temperature, humidity, and wind
+- `apparent_temperature` — Heat index; how hot it actually feels by combining temperature, humidity, and wind
 
-**Coverage:** 18 locations across Metro Manila (Caloocan is split into North and South) <br>
-**Time Range:** Past 7 days + 14-day forecast, updated daily
+**Coverage:** 18 NCR locations with Caloocan split into North and South districts <br>
+**Time Range:** Past 7 days + 14-day forecast, updated daily at 8:00 AM Manila Time.
 
 ---
 
@@ -40,8 +40,19 @@ ncr-heat-index/ <br>
 │       └── daily_update.yml   # GitHub Actions scheduler <br>
 ├── main.py                    # Main Python extraction script <br>
 ├── requirements.txt           # Python dependencies <br>
-├── service-account.json       # Google Cloud credentials (private) <br>
+├── service-account.json       # Private credentials (excluded from public repository) <br>
 └── README.md                  # Project documentation <br>
+
+---
+
+## Technologies Used
+
+- **Python** — Data extraction, transformation, and automation
+- **OpenMeteo Weather Forecast API** — Weather and heat index data source
+- **Google Sheets API** — Cloud-based dataset storage
+- **GitHub Actions** — Automated daily pipeline execution
+- **Tableau Public** — Interactive dashboard and data visualization
+- **Google Cloud Service Account** — Authentication for Google Sheets integration
 
 ---
 
@@ -49,9 +60,9 @@ ncr-heat-index/ <br>
 
 1. **Data Extraction** — main.py fetches hourly temperature, humidity, and apparent temperature for 18 NCR locations from the OpenMeteo API.
 2. **Data Transformation** — Data is cleaned, timestamps are set to Philippine Standard Time (GMT+8), and heat index values are classified using PAGASA risk levels.
-3. **Data Storage** — The processed data is automatically appended to a Google Sheets file via Google Cloud.
+3. **Data Storage** — The processed data is automatically appended to Google Sheets using the Google Sheets API.
 4. **Automation** — GitHub Actions runs the pipeline every day at 8:00 AM Manila Time.
-5. **Visualization** — Tableau Public connects to Google Sheets with 24-hour sync to display the live dashboard.
+5. **Visualization** — Tableau Public connects to Google Sheets with a daily dashboard refresh to display the live dashboard.
 
 ---
 
@@ -66,6 +77,19 @@ ncr-heat-index/ <br>
 
 ---
 
+## Dashboard Features
+
+- Daily updated heat index monitoring for all NCR cities and municipalities
+- Daily automated dataset updates through GitHub Actions
+- Interactive dashboard visualization using Tableau Public
+- PAGASA-based heat risk classifications through color-coded indicators
+- Time-series charts showing heat index trends over time
+- Interactive filters by location and date for easier data exploration
+- Heat maps and charts for clearer visualization of high-risk areas
+- Centralized and accessible public heat index information
+
+---
+
 ## Live Dashboard
 
 [placeholder]
@@ -74,4 +98,4 @@ ncr-heat-index/ <br>
 
 ## License
 
-This project is open-source and intended for public use in accordance with the theme of helping the Filipino people.
+This project is open-source and developed for educational and public awareness purposes related to heat risk monitoring, in line with the theme of helping the Filipino people.
