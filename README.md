@@ -20,7 +20,7 @@ This project is a live, automated heat index dashboard for the 17 cities and mun
 
 **API:** OpenMeteo Weather Forecast API
 
-**URL:** https://open-meteo.com/en/docs?hourly=temperature_2m,relative_humidity_2m,apparent_temperature&past_days=7&forecast_days=14&timezone=Asia%2FSingapore&latitude=14.6184&longitude=120.9651 
+**URL:** https://openmeteo.com/en/docshourly=temperature_2m,relative_humidity_2m,apparent_temperature&past_days=7&forecast_days=14&timezone=Asia%2FSingapore&latitude=14.6184&longitude=120.9651 
 
 **Variables:**
 - `temperature_2m` — Actual air temperature (°C) at 2 meters above ground
