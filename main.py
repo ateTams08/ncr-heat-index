@@ -47,7 +47,7 @@ params = {
         "apparent_temperature"
     ],
     "timezone": "Asia/Manila",
-    "past_days": 7,
+    "past_days": 0,
     "forecast_days": 14,
 }
 
@@ -59,7 +59,6 @@ all_locations_data = []
 # --- 2. PROCESS DATA ---
 for i, response in enumerate(responses):
     hourly = response.Hourly()
-
     city_label = CITY_NAMES[i] if i < len(CITY_NAMES) else f"Coord_{i}"
 
     times = pd.date_range(
@@ -90,6 +89,8 @@ for i, response in enumerate(responses):
     all_locations_data.append(df_loc)
 
 final_df = pd.concat(all_locations_data, ignore_index=True)
+
+final_df = final_df.round({"temp": 2, "humidity": 2, "apparent_temp": 2})
 final_df = final_df.fillna(0)
 
 # --- 3. AUTHENTICATION (GitHub Secret) ---
@@ -114,6 +115,7 @@ client = gspread.authorize(creds)
 try:
     ws = client.open(SHEET_TITLE).get_worksheet(0)
 
+    # Convert dataframe to list format for gspread
     data_to_send = [final_df.columns.values.tolist()] + final_df.values.tolist()
 
     ws.clear()
