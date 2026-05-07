@@ -111,18 +111,29 @@ creds = Credentials.from_service_account_info(
 
 client = gspread.authorize(creds)
 
-# --- 4. UPLOAD TO GOOGLE SHEETS ---
+# --- 4. UPLOAD TO GOOGLE SHEETS (SEND IN CHUNKS) ---
 try:
     ws = client.open(SHEET_TITLE).get_worksheet(0)
-
-    # Convert dataframe to list format for gspread
-    data_to_send = [final_df.columns.values.tolist()] + final_df.values.tolist()
-
+    
+    print("Clearing sheet and preparing batch upload...")
     ws.clear()
-    ws.update(values=data_to_send, range_name='A1')
+
+    headers = [final_df.columns.values.tolist()]
+    ws.update(values=headers, range_name='A1')
+
+    print(f"Uploading data in batches for {len(CITY_NAMES)} cities...")
+    
+    # Converting the dataframe to a list of lists (excluding headers)
+    all_data = final_df.values.tolist()
+    
+    chunk_size = 500
+    for i in range(0, len(all_data), chunk_size):
+        chunk = all_data[i:i + chunk_size]
+        ws.append_rows(chunk, value_input_option='RAW')
+        print(f"Uploaded rows {i} to {i + len(chunk)}...")
 
     print("Success! Your Metro Manila dashboard is updated.")
 
 except Exception as e:
-    print(f"Error: {e}")
+    print(f"Error during upload: {e}")
     raise
