@@ -3,8 +3,8 @@
 **Course:** DSA4154 - Information Presentation and Visualization <br>
 **Program:** BS Data Science and Analytics <br>
 **University:** University of Santo Tomas <br>
-**2DSA2 - Group 4**
 
+**2DSA2 - Group 4**
 Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan | 
 Cherelle Valkyrie R. Oyales | John Dennis V. Vergara | Alecsandra Z. Villanueva
 
