@@ -3,9 +3,9 @@
 **Course:** DSA4154 - Information Presentation and Visualization <br>
 **Program:** BS Data Science and Analytics <br>
 **University:** University of Santo Tomas <br>
-**Group 4**
+**2DSA2 - Group 4**
 
-Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan
+Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan | 
 Cherelle Valkyrie R. Oyales | John Dennis V. Vergara | Alecsandra Z. Villanueva
 
 ---
@@ -28,7 +28,7 @@ This project is a live, automated heat index dashboard for the 17 cities and mun
 - `apparent_temperature` — Heat index; how hot it actually feels by combining temperature, humidity, and wind
 
 **Coverage:** 18 NCR locations with Caloocan split into North and South districts <br>
-**Time Range:** Past 7 days + 14-day forecast, updated daily at 8:00 AM Manila Time.
+**Time Range:** 14-day forecast, updated daily at 8:00 AM Manila Time.
 
 ---
 
@@ -91,10 +91,13 @@ ncr-heat-index/ <br>
 
 ## Live Dashboard
 
-[placeholder]
+
+
+**URL:** 
+https://public.tableau.com/views/NCRHeatIndexMonitoringDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ---
 
 ## License
 
-This project is open-source and developed for educational and public awareness purposes related to heat risk monitoring, in line with the theme of helping the Filipino people.
+This project is open-source and developed for educational and public awareness purposes related to heat risk monitoring, in line with the theme of helping Filipinos.
