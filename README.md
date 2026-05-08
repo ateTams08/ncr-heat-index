@@ -5,7 +5,7 @@
 **University:** University of Santo Tomas <br>
 
 **2DSA2 - Group 4**<br>
-Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan | <br>
+Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan <br>
 Cherelle Valkyrie R. Oyales | John Dennis V. Vergara | Alecsandra Z. Villanueva
 
 ---
