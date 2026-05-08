@@ -33,16 +33,16 @@ This project is a live, automated heat index dashboard for the 17 cities and mun
 ---
 
 ## Repository Structure
-
-ncr-heat-index/ <br>
-├── .github/ <br>
-│   └── workflows/ <br>
-│       └── daily_update.yml   # GitHub Actions scheduler <br>
-├── main.py                    # Main Python extraction script <br>
-├── requirements.txt           # Python dependencies <br>
-├── service-account.json       # Private credentials (excluded from public repository) <br>
-└── README.md                  # Project documentation <br>
-
+```
+ncr-heat-index/
+├── .github/
+│   └── workflows/
+│       └── daily_update.yml   # GitHub Actions scheduler
+├── main.py                    # Main Python extraction script
+├── requirements.txt           # Python dependencies
+├── service-account.json       # Private credentials (excluded)
+└── README.md                  # Project documentation
+```
 ---
 
 ## Technologies Used
@@ -91,7 +91,7 @@ ncr-heat-index/ <br>
 
 ## Live Dashboard
 
-
+The NCR Heat Index Monitoring Dashboard provides real-time and forecasted heat index insights across the National Capital Region through interactive visualizations and data-driven analytics. Published through Tableau Public, the dashboard is designed to help users monitor temperature trends, assess heat risk levels, and support informed decision-making for public safety and awareness.
 
 **URL:** 
 https://public.tableau.com/views/NCRHeatIndexMonitoringDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
