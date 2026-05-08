@@ -83,7 +83,6 @@ ncr-heat-index/ <br>
 - Daily automated dataset updates through GitHub Actions
 - Interactive dashboard visualization using Tableau Public
 - PAGASA-based heat risk classifications through color-coded indicators
-- Time-series charts showing heat index trends over time
 - Interactive filters by location and date for easier data exploration
 - Heat maps and charts for clearer visualization of high-risk areas
 - Centralized and accessible public heat index information
