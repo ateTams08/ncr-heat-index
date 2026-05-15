@@ -3,7 +3,7 @@ name: Daily Manila Weather Update
 on:
   schedule:
     # Runs at 00:00 UTC every day (8:00 AM Manila Time)
-    - cron: '0 0 * * *'
+    - cron: '45 21 * * *' # Runs at 5:45 AM PHT to reduce GitHub cron delay
   workflow_dispatch:
 
 jobs:
