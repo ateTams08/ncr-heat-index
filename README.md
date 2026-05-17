@@ -148,6 +148,7 @@ ncr-heat-index/
 - Top hottest cities monitoring
 - Automated “Last Updated” timestamp tracking
 - Centralized and publicly accessible heat index information
+- Reminders, symptoms, and implications for specific risk levels
 
 ---
 
