@@ -147,8 +147,7 @@ ncr-heat-index/
 - Dynamic 14-day forecast exploration
 - Top hottest cities monitoring
 - Automated “Last Updated” timestamp tracking
-- Centralized and publicly accessible heat index information
-- Reminders, symptoms, and implications for specific risk levels
+- Centralized and publicly accessible heat risk information
 
 ---
 
