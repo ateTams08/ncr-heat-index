@@ -1,103 +1,172 @@
-# NCR Heat Index Dashboard
+# HeatBeat: NCR Heat Index Dashboard
 
-**Course:** DSA4154 - Information Presentation and Visualization <br>
-**Program:** BS Data Science and Analytics <br>
-**University:** University of Santo Tomas <br>
+**Course:** DSA4154 - Information Presentation and Visualization  
+**Program:** BS Data Science and Analytics  
+**University:** University of Santo Tomas  
 
-**2DSA2 - Group 4**<br>
-Aira Beatrice A. Donato | Atasha Samantha T. Geronimo | Zarinah Lindsay C. Gianan <br>
-Cherelle Valkyrie R. Oyales | John Dennis V. Vergara | Alecsandra Z. Villanueva
-
----
-
-## About the Project
-
-This project is a live, automated heat index dashboard for the 17 cities and municipalities of Metro Manila (NCR). It aims to inform the public about heat conditions and trends to help them make safer decisions during extreme heat events.
+## 2DSA2 - Group 4
+- Atasha Samantha T. Geronimo  
+- Zarinah Lindsay C. Gianan  
+- Cherelle Valkyrie R. Oyales  
+- John Dennis V. Vergara  
+- Alecsandra Z. Villanueva  
 
 ---
 
-## Data Source
+# Project Overview
 
-**API:** OpenMeteo Weather Forecast API
+HeatBeat is a live, automated heat index monitoring dashboard for the National Capital Region (NCR), Philippines. The project tracks and visualizes hourly heat index conditions across Metro Manila using automated weather data pipelines and interactive visual analytics.
 
-**URL:** https://openmeteo.com/en/docshourly=temperature_2m,relative_humidity_2m,apparent_temperature&past_days=7&forecast_days=14&timezone=Asia%2FSingapore&latitude=14.6184&longitude=120.9651 
-
-**Variables:**
-- `temperature_2m` — Actual air temperature (°C) at 2 meters above ground
-- `relative_humidity_2m` — Relative humidity (%) at 2 meters above ground
-- `apparent_temperature` — Heat index; how hot it actually feels by combining temperature, humidity, and wind
-
-**Coverage:** 18 NCR locations with Caloocan split into North and South districts <br>
-**Time Range:** 14-day forecast, updated daily at 8:00 AM Manila Time.
+The dashboard aims to improve public awareness of heat-related risks by providing accessible, real-time, and forecasted heat index information based on PAGASA heat risk classifications.
 
 ---
 
-## Repository Structure
-```
-ncr-heat-index/
-├── .github/
-│   └── workflows/
-│       └── daily_update.yml   # GitHub Actions scheduler
-├── main.py                    # Main Python extraction script
-├── requirements.txt           # Python dependencies
-├── service-account.json       # Private credentials (excluded)
-└── README.md                  # Project documentation
-```
----
+# Project Objectives
 
-## Technologies Used
-
-- **Python** — Data extraction, transformation, and automation
-- **OpenMeteo Weather Forecast API** — Weather and heat index data source
-- **Google Sheets API** — Cloud-based dataset storage
-- **GitHub Actions** — Automated daily pipeline execution
-- **Tableau Public** — Interactive dashboard and data visualization
-- **Google Cloud Service Account** — Authentication for Google Sheets integration
+- Monitor hourly heat index conditions across NCR
+- Provide accessible and interactive public heat risk visualizations
+- Automate the full data pipeline without manual uploads
+- Support heat awareness and data-driven decision-making during extreme heat events
 
 ---
 
-## How It Works
+# Technologies Used
 
-1. **Data Extraction** — main.py fetches hourly temperature, humidity, and apparent temperature for 18 NCR locations from the OpenMeteo API.
-2. **Data Transformation** — Data is cleaned, timestamps are set to Philippine Standard Time (GMT+8), and heat index values are classified using PAGASA risk levels.
-3. **Data Storage** — The processed data is automatically appended to Google Sheets using the Google Sheets API.
-4. **Automation** — GitHub Actions runs the pipeline every day at 8:00 AM Manila Time.
-5. **Visualization** — Tableau Public connects to Google Sheets with a daily dashboard refresh to display the live dashboard.
+| Component | Technology |
+|---|---|
+| Data Extraction | Python |
+| API Source | Open-Meteo Weather API |
+| Automation | GitHub Actions |
+| Cloud Storage | Google Sheets API |
+| Visualization | Tableau Public |
+| Authentication | Google Cloud Service Account |
 
 ---
 
-## PAGASA Heat Index Risk Levels
+# Data Source
+
+## Open-Meteo Weather Forecast API
+
+The project uses the Open-Meteo API to retrieve hourly weather forecast data for NCR locations.
+
+**API Documentation:**  
+https://open-meteo.com/en/docs
+
+### Variables Collected
+
+- `temperature_2m` — Actual air temperature (°C)
+- `relative_humidity_2m` — Relative humidity (%)
+- `apparent_temperature` — Heat index or perceived temperature
+
+### Coverage
+
+- 18 NCR locations
+- Caloocan separated into North and South districts
+
+### Forecast Range
+
+- 14-day forecast
+- Updated daily at 8:00 AM Philippine Standard Time
+
+---
+
+# PAGASA Heat Risk Classification
 
 | Heat Index (°C) | Risk Level |
 |---|---|
-| 27 – 32 | Caution |
-| 33 – 41 | Extreme Caution |
-| 42 – 51 | Danger |
+| Below 27 | Non-Hazardous |
+| 27–32 | Caution |
+| 33–41 | Extreme Caution |
+| 42–51 | Danger |
 | 52+ | Extreme Danger |
 
 ---
 
-## Dashboard Features
+# Automation Workflow
 
-- Daily updated heat index monitoring for all NCR cities and municipalities
+## 1. Data Extraction
+
+`main.py` retrieves hourly forecast data from the Open-Meteo API for all NCR locations.
+
+## 2. Data Transformation
+
+The pipeline:
+
+- Cleans and standardizes records
+- Converts timestamps to Philippine Standard Time (GMT+8)
+- Classifies heat index values using PAGASA risk levels
+
+## 3. Cloud Storage
+
+Processed data is automatically uploaded to Google Sheets through the Google Sheets API.
+
+## 4. Automated Scheduling
+
+GitHub Actions executes the pipeline daily at 8:00 AM Manila Time without requiring manual intervention.
+
+## 5. Dashboard Visualization
+
+Tableau Public connects directly to Google Sheets using the Google Drive connector with scheduled refresh enabled.
+
+---
+
+# Cloud Storage Resources
+
+| Resource | Purpose |
+|---|---|
+| Weather Dataset Sheet | Stores automated hourly NCR weather and heat index data |
+| Heat Risk Reference Sheet | Stores static PAGASA heat risk classifications used in dashboard legends and interpretation |
+
+---
+
+# Repository Structure
+
+```plaintext
+ncr-heat-index/
+├── .github/
+│   └── workflows/
+│       └── daily_update.yml      # GitHub Actions automation workflow
+├── main.py                       # Main extraction and transformation script
+├── requirements.txt              # Python dependencies
+├── README.md                     # Project documentation
+└── .gitignore                    # Excludes private credentials
+```
+
+> Note: Private credentials such as `service-account.json` are excluded from the repository through `.gitignore` for security purposes.
+
+---
+
+# Dashboard Features
+
+- Live and automated heat index monitoring across NCR
 - Daily automated dataset updates through GitHub Actions
 - Interactive dashboard visualization using Tableau Public
 - PAGASA-based heat risk classifications through color-coded indicators
 - Interactive filters by location and date for easier data exploration
-- Heat maps and charts for clearer visualization of high-risk areas
-- Centralized and accessible public heat index information
+- Heat maps and hourly heat index visualizations
+- Dynamic 14-day forecast exploration
+- Top hottest cities monitoring
+- Automated “Last Updated” timestamp tracking
+- Centralized and publicly accessible heat index information
 
 ---
 
-## Live Dashboard
+# Live Dashboard
 
-The NCR Heat Index Monitoring Dashboard provides real-time and forecasted heat index insights across the National Capital Region through interactive visualizations and data-driven analytics. Published through Tableau Public, the dashboard is designed to help users monitor temperature trends, assess heat risk levels, and support informed decision-making for public safety and awareness.
+The HeatBeat Dashboard provides real-time and forecasted heat index insights across the National Capital Region through interactive visualizations and data-driven analytics. Published through Tableau Public, the dashboard is designed to help users monitor temperature trends, assess heat risk levels, and support informed decision-making for public safety and awareness.
 
-**URL:** 
+## Tableau Public Dashboard
+
 https://public.tableau.com/views/NCRHeatIndexMonitoringDashboard/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link
 
 ---
 
-## License
+# GitHub Repository
 
-This project is open-source and developed for educational and public awareness purposes related to heat risk monitoring, in line with the theme of helping Filipinos.
+https://github.com/your-group/ncr-heat-index
+
+---
+
+# License
+
+This project is open-source and developed for educational and public awareness purposes related to heat risk monitoring and public safety in the Philippines.
