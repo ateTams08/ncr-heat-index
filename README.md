@@ -147,7 +147,80 @@ ncr-heat-index/
 - Dynamic 14-day forecast exploration
 - Top hottest cities monitoring
 - Automated “Last Updated” timestamp tracking
-- Centralized and publicly accessible heat risk information
+- Centralized and publicly accessible heat index information
+
+---
+
+# Data Cleaning & Calculated Fields
+
+The dashboard applies several preprocessing and calculated logic steps to improve consistency, readability, and analytical interpretation.
+
+## Data Cleaning
+- Converted timestamps to Philippine Standard Time (GMT+8)
+- Standardized hourly datetime formatting
+- Structured data by city, date, and hourly forecast intervals
+
+## Tableau Calculated Fields
+
+### Heat Risk Level
+Classifies heat index values according to PAGASA heat risk thresholds.
+
+```tableau
+IF FLOAT([Apparent Temp]) >= 52 THEN "Extreme Danger"
+ELSEIF FLOAT([Apparent Temp]) >= 42 THEN "Danger"
+ELSEIF FLOAT([Apparent Temp]) >= 33 THEN "Extreme Caution"
+ELSEIF FLOAT([Apparent Temp]) >= 27 THEN "Caution"
+ELSE "Non-Hazardous"
+END
+```
+
+### Display Date
+Creates dynamic dashboard date labels such as “Today” and forecast dates.
+
+### Peak Heat Hour
+Identifies the hour with the highest average NCR heat index for the current day.
+
+### Top Hottest Cities
+Ranks NCR cities based on maximum daily apparent temperature values.
+
+---
+
+# How to Read the Dashboard
+
+The dashboard is divided into multiple sections to support both quick monitoring and deeper exploration of NCR heat conditions.
+
+## Today's Overview
+Displays today's key heat indicators in the NCR, including:
+- Average Heat Index
+- Maximum Heat Index
+- Hottest NCR Location
+- Peak Heat Hour
+
+These KPIs provide a quick summary of current heat conditions across Metro Manila.
+
+## Heat Risk Map
+Shows the geographic distribution of heat index levels across NCR cities today using color-coded PAGASA heat risk classifications.
+
+## Hourly Heat Index Grid
+Visualizes hourly heat index forecasts per city to help identify:
+- Peak heat periods
+- High-risk locations
+- Daily heat patterns
+
+## Forecast Exploration
+Interactive filters allow users to:
+- View current and upcoming forecast dates
+- Explore hourly heat conditions
+- Compare NCR locations dynamically
+
+## Heat Risk Legend
+The dashboard uses PAGASA heat risk classifications:
+
+- 🟦 Non-Hazardous (<27°C)
+- 🟨 Caution (27°C–32°C)
+- 🟧 Extreme Caution (33°C–41°C)
+- 🟥 Danger (42°C–51°C)
+- 🟥 Extreme Danger (52°C+)
 
 ---
 
@@ -163,7 +236,7 @@ https://public.tableau.com/views/NCRHeatIndexMonitoringDashboard/Dashboard1?:lan
 
 # GitHub Repository
 
-https://github.com/your-group/ncr-heat-index
+https://github.com/ateTams08/ncr-heat-index/
 
 ---
 
